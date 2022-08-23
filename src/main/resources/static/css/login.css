@@ -11,26 +11,27 @@
     margin-right:auto;
 }
 
-.btn.btn-primary.btn-lg{
-    border:1px solid #09a5cf;
-    background-color:white;
-    color:black;
-    font-size:80%;
-    width:170px;
-}
-
 .login-button{
     text-align:center;
 }
 
-.button-group{
-    text-align:center;
-}
-
 img{
-    margin-top:60px;
+    margin-top:30px;
     width:20%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#LogInOptions{
+    text-align:center;
+    width:350px;
+    margin-inline: auto;
+    margin-top: 15px;
+    margin-bottom: 5%;
+}
+
+#LogInOptions a{
+    width: 50%;
+    justify-content: center;
 }

@@ -16,3 +16,4 @@ SELECT LAST_INSERT_ID();
 
 INSERT INTO progress(lecture_id, plan_id, done)
 VALUES (list<lectureId>[i], planId, FALSE)
+@END

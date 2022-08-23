@@ -1,0 +1,14 @@
+.logo{
+    width:20%;
+    display: block;
+    margin-block: 20px;
+    margin-inline: auto;
+}
+
+.introduction{
+    position: relative;
+    top: 10%;
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 20%;
+}

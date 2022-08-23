@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<header id="header" th:fragment="header">
+    <link rel="stylesheet" href="/css/header.css">
+    <nav id="navbar" class="link">
+        <a class="sidelink" id="homeLink" href="/templates/views/index.html" th:href="@{/}"><strong>Pace Maker</strong></a>
+            <ul id="subjects">
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수(상)</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수(하)</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수I</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수II</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">확률과 통계</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">미적분</a></li>
+                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">기하</a></li>
+            </ul>
+        <a class="sidelink" id="logInLink" href="/templates/views/login.html" th:href="@{/login}">로그인</a>
+    </nav>
+    <hr>
+</header>
+</html>
