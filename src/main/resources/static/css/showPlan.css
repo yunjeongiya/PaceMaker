@@ -1,18 +1,39 @@
-.table-wrapper{
-    margin-inline: auto;
-    width: 50%;
-    max-height: 50%;
-    margin-top: 10px;
+.date{
     text-align: center;
-    overflow: scroll;
+    margin-top: 10px;
+    margin-inline: auto;
 }
 
 .plan{
+    margin-top: 10px;
+    margin-inline: auto;
+    width: 50%;
+    height: 60%;
     table-layout: fixed;
-    width: 100%;
-    height: 100%;
+    border-collapse: collapse;
+    border: 1px solid #888;
 }
 
-.plan tr{
-    word-break: break-all;
+/* 행 장식 */
+.plan th, .plan td {
+    padding: 10px;
+    text-align: left;
+}
+
+.plan thead {
+    display:block;
+    background: #8a8a8a;
+}
+.plan tbody{
+    display:block;
+    overflow:auto;
+    height:100%;
+}
+
+#learningContent{
+    width: 80%;
+}
+
+#done{
+    width: 20%;
 }
