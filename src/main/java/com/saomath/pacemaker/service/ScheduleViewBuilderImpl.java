@@ -1,4 +1,4 @@
 package com.saomath.pacemaker.service;
 
-public interface UserService {
+public class ScheduleViewBuilderImpl {
 }

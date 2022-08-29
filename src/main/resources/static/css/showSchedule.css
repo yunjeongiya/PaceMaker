@@ -4,7 +4,7 @@
     margin-inline: auto;
 }
 
-.plan{
+.schedule{
     margin-top: 10px;
     margin-inline: auto;
     width: 50%;
@@ -15,16 +15,16 @@
 }
 
 /* 행 장식 */
-.plan th, .plan td {
+.schedule th, .schedule td {
     padding: 10px;
     text-align: left;
 }
 
-.plan thead {
+.schedule thead {
     display:block;
     background: #8a8a8a;
 }
-.plan tbody{
+.schedule tbody{
     display:block;
     overflow:auto;
     height:100%;

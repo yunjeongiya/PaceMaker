@@ -20,6 +20,27 @@
     width: 50%;
 }
 
+#courses{
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#courses li{
+    margin-inline: 5%;
+}
+
+.hoverZone:hover #courses {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+    margin-inline: 25%;
+    width: 50%;
+}
+
 .sidelink{
     width:25%;
 }

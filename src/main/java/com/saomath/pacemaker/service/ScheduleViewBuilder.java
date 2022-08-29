@@ -1,4 +1,4 @@
 package com.saomath.pacemaker.service;
 
-public interface CourseService {
+public interface ScheduleViewBuilder {
 }

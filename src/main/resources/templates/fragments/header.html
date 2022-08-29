@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="/css/header.css">
     <nav id="navbar" class="link">
         <a class="sidelink" id="homeLink" href="/templates/views/index.html" th:href="@{/}"><strong>Pace Maker</strong></a>
-            <ul id="subjects">
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수(상)</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수(하)</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수I</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">수II</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">확률과 통계</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">미적분</a></li>
-                <li><a href="/templates/views/showPlan.html" th:href="@{/showPlan}">기하</a></li>
-            </ul>
+        <ul id="subjects">
+            <li class="hoverZone" th:each="it:${subjectToCourseMap}">
+                <a th:text = "${it.key.name}">subject list</a>
+                <ul class="hoverZone" id="courses">
+                    <li th:each="course:${it.value}">
+                        <a href="/templates/views/showSchedule.html" th:href="@{/showSchedule(courseId=${course.id}, courseTitle=${course.title})}" th:text = "${course.title}">course list</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
         <a class="sidelink" id="logInLink" href="/templates/views/login.html" th:href="@{/login}">로그인</a>
     </nav>
     <hr>
+    </div>
 </header>
 </html>

@@ -1,4 +1,4 @@
 package com.saomath.pacemaker.repository;
 
-public interface PlanRepository {
+public class JdbcTemplateLectureRepo {
 }

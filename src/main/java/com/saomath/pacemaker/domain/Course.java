@@ -1,7 +1,10 @@
 package com.saomath.pacemaker.domain;
 
+import lombok.Data;
+
+@Data
 public class Course {
-    private double id;
+    private Long id;
     private String title;
     private String subject;
 }

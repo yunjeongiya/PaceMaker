@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" layout:decorate="~{layouts/default}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block layout:fragment="content">
+    <link rel="stylesheet" href="/css/showSchedule.css">
+    <div class="date">
+        <strong th:text="${courseTitle} +' '+ ${startDate} + ' ~ ' + ${endDate}">YYYY/MM/DD ~ YYYY/MM/DD</strong>
+    </div>
+    <table class="schedule">
+        <thead>
+        <tr>
+            <th scope="col" id="learningContent">학습 내용</th>
+            <th scope="col" id="done">완료</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="progress : ${progresses}">
+            <th scope="col" th:text="${progress.title}">삼각함수 Lv1 - 삼각함수의 정의</th>
+            <th scope="col"><input type="checkbox" th:checked="${progress.done}"></th>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</html>
