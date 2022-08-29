@@ -7,7 +7,7 @@ public class Schedule {
     private String userId;
     private Long courseId;
     private LocalDate startDate = LocalDate.now();
-    private boolean state = true;
+    private boolean activated = true;
     private String comment = null;
 
     public Schedule(String userId, Long courseId) {

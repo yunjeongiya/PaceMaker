@@ -1,4 +1,4 @@
-SELECT id as lecture_id, weight FROM lecture
+SELECT * FROM lecture
 WHERE course_id = courseId AND id NOT IN
 (   SELECT lecture_id FROM plan INNER JOIN progress
     ON plan.id = progress.plan_id
