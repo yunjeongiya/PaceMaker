@@ -2,9 +2,11 @@
 <html lang="ko" layout:decorate="~{layouts/default}" xmlns:layout="http://www.w3.org/1999/xhtml">
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block layout:fragment="content">
+    <link rel="stylesheet" href="/css/buttons.css">
     <link rel="stylesheet" href="/css/showSchedule.css">
     <div class="date">
-        <strong th:text="${courseTitle} +' '+ ${startDate} + ' ~ ' + ${endDate}">YYYY/MM/DD ~ YYYY/MM/DD</strong>
+        <strong th:text="${courseTitle}"> courseTitle </strong>
+        <br> <strong th:text="${scheduleView.startDate} + ' ~ ' + ${scheduleView.endDate}"> YYYY/MM/DD ~ YYYY/MM/DD </strong>
     </div>
     <table class="schedule">
         <thead>
@@ -14,11 +16,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="progress : ${progresses}">
-            <th scope="col" th:text="${progress.title}">삼각함수 Lv1 - 삼각함수의 정의</th>
-            <th scope="col"><input type="checkbox" th:checked="${progress.done}"></th>
+        <tr th:each="progress : ${scheduleView.progressWithLectureInfoList}">
+            <td th:text="${progress.title}">lecture title</td>
+            <td> <input type="checkbox" th:name="${progress.progressId}" th:checked="${progress.done}" onClick="check(this)"> </td>
         </tr>
         </tbody>
     </table>
+    <form id="commentForm">
+        <input type="hidden" id="scheduleId" th:value="${scheduleView.scheduleId}">
+        <input id="comment" placeholder="이번 주 학습 소감" th:value="${scheduleView.comment}">
+        <input type="button" value="저장" onclick="dataSend()">
+    </form>
+    <a id="restartbtn" class="w-btn w-btn-gra1 w-btn-gra-anim"
+       th:href="@{/makeSchedule(courseId=${courseId}, courseTitle=${courseTitle})}">
+        RESTART!
+    </a>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/js/Ajax.js"></script>
 </th:block>
 </html>

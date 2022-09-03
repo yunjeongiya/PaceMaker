@@ -1,10 +1,6 @@
 package com.saomath.pacemaker;
-import com.saomath.pacemaker.repository.CourseRepository;
-import com.saomath.pacemaker.repository.JdbcTemplateCourseRepo;
-import com.saomath.pacemaker.repository.JdbcTemplateSubjectRepo;
-import com.saomath.pacemaker.repository.SubjectRepository;
-import com.saomath.pacemaker.service.CourseMapBuilder;
-import com.saomath.pacemaker.service.CourseMapBuilderImpl;
+import com.saomath.pacemaker.repository.*;
+import com.saomath.pacemaker.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +19,6 @@ public class SpringConfig {
     public CourseMapBuilder courseMapBuilder() {
         return new CourseMapBuilderImpl(subjectRepository(), courseRepository());
     }
-
     @Bean
     public SubjectRepository subjectRepository() {
         return new JdbcTemplateSubjectRepo(dataSource);
@@ -32,5 +27,14 @@ public class SpringConfig {
     public CourseRepository courseRepository() {
         return new JdbcTemplateCourseRepo(dataSource);
     }
+
+    @Bean
+    public ScheduleViewBuilder scheduleViewBuilder() {
+        return new ScheduleViewBuilderImpl(scheduleRepository(), progressRepository());
+    }
+    @Bean
+    public ScheduleRepository scheduleRepository() {return new JdbcTemplateScheduleRepo(dataSource);}
+    @Bean
+    public ProgressRepository progressRepository() {return new JdbcTemplateProgressRepo(dataSource);}
 
 }

@@ -6,8 +6,9 @@ import com.saomath.pacemaker.domain.Lecture;
 import java.util.List;
 
 public class ScheduleBuilderImpl implements ScheduleBuilder{
+
     @Override
-    public List<Lecture> getSchedulingResource(Long courseId, Long userId) {
+    public List<Lecture> getSchedulingResource(String userId, Long courseId) {
         return null;
     }
 
@@ -17,7 +18,7 @@ public class ScheduleBuilderImpl implements ScheduleBuilder{
     }
 
     @Override
-    public void replaceSchedule(Long userId, Long courseId, List<Long> lectureIdList) {
+    public void replaceSchedule(String userId, Long courseId, List<Long> lectureIdList) {
 
     }
 }

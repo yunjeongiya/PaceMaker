@@ -1,5 +1,8 @@
 package com.saomath.pacemaker.domain;
 
+import lombok.Getter;
+
+@Getter
 public class Progress {
     private Long id;
     private Long scheduleId;

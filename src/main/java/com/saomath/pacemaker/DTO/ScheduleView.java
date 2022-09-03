@@ -7,8 +7,9 @@ import java.util.List;
 
 @Data
 public class ScheduleView {
-    private Long ScheduleId;
-    private LocalDate startDate;
+    private Long scheduleId;
+    private String startDate;
+    private String endDate;
     private List<ProgressWithLectureInfo> progressWithLectureInfoList;
     private String comment;
 }

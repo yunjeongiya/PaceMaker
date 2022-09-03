@@ -1,7 +1,10 @@
 package com.saomath.pacemaker.domain;
 
+import lombok.Getter;
+
 import java.time.LocalDate;
 
+@Getter
 public class Schedule {
     private Long id;
     private String userId;

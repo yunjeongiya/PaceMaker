@@ -5,5 +5,5 @@ import com.saomath.pacemaker.domain.Lecture;
 import java.util.List;
 
 public interface LectureRepository {
-    List<Lecture> findSchedulingResource(Long courseId, Long userId);
+    List<Lecture> findSchedulingResource(String userId, Long courseId);
 }

@@ -16,7 +16,7 @@ public class JdbcTemplateLectureRepo implements LectureRepository {
     }
 
     @Override
-    public List<Lecture> findSchedulingResource(Long courseId, Long userId) {
+    public List<Lecture> findSchedulingResource(String userId, Long courseId) {
         return jdbcTemplate.query("select * from lecture where course_id = ? and not in " +
                 "(select lecture_id from schedule inner join progress on schedule.id=progress.schedule_id where schedule.user_id = ? and schedule.course_id = ? and done = true)",
                 lectureRowMapper(), courseId, userId, courseId );

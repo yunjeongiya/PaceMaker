@@ -2,7 +2,7 @@ SELECT id, start_date, comment
 FROM plan
 WHERE user_id = userId AND course_id = courseId AND state = true
 
--> if null ) makePlan으로 이동
+-> if null ) no plan!
 -> else ) startDate = start_date, comment = comment, planId = id DTO로 저장
 
 SELECT progress.id as progress_id, title, link, done

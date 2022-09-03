@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko" layout:decorate="~{layouts/default}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block layout:fragment="content">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <a id="bignewbtn" class="w-btn w-btn-gra1 w-btn-gra-anim"
+       th:href="@{/makeSchedule(courseId=${courseId}, courseTitle=${courseTitle})}">
+        NEW
+    </a>
+</th:block>
+</html>

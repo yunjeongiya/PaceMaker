@@ -2,6 +2,8 @@ package com.saomath.pacemaker.service;
 
 import com.saomath.pacemaker.DTO.ScheduleView;
 
+import java.util.Optional;
+
 public interface ScheduleViewBuilder {
-    ScheduleView buildScheduleView(Long courseId, Long userId);
+    Optional<ScheduleView> buildScheduleView(String userId, Long courseId);
 }
