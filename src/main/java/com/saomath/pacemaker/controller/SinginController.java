@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class singinController extends BaseController {
-    public singinController(CourseMapBuilder courseMapBuilder) {
+public class SinginController extends BaseController {
+    public SinginController(CourseMapBuilder courseMapBuilder) {
         super(courseMapBuilder);
     }
 

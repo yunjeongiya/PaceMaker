@@ -15,10 +15,15 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
 
+    //Service
     @Bean
-    public CourseMapBuilder courseMapBuilder() {
-        return new CourseMapBuilderImpl(subjectRepository(), courseRepository());
-    }
+    public CourseMapBuilder courseMapBuilder() { return new CourseMapBuilderImpl(subjectRepository(), courseRepository()); }
+    @Bean
+    public ScheduleViewBuilder scheduleViewBuilder() { return new ScheduleViewBuilderImpl(scheduleRepository(), progressRepository()); }
+    @Bean
+    public ScheduleBuilder scheduleBuilder() { return new ScheduleBuilderImpl(lectureRepository(), scheduleRepository(), progressRepository()); }
+
+    //Repository
     @Bean
     public SubjectRepository subjectRepository() {
         return new JdbcTemplateSubjectRepo(dataSource);
@@ -27,14 +32,11 @@ public class SpringConfig {
     public CourseRepository courseRepository() {
         return new JdbcTemplateCourseRepo(dataSource);
     }
-
     @Bean
-    public ScheduleViewBuilder scheduleViewBuilder() {
-        return new ScheduleViewBuilderImpl(scheduleRepository(), progressRepository());
-    }
+    public ScheduleRepository scheduleRepository() { return new JdbcTemplateScheduleRepo(dataSource); }
     @Bean
-    public ScheduleRepository scheduleRepository() {return new JdbcTemplateScheduleRepo(dataSource);}
+    public ProgressRepository progressRepository() { return new JdbcTemplateProgressRepo(dataSource); }
     @Bean
-    public ProgressRepository progressRepository() {return new JdbcTemplateProgressRepo(dataSource);}
+    public LectureRepository lectureRepository() {return new JdbcTemplateLectureRepo(dataSource)}
 
 }

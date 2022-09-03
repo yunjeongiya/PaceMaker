@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-public class showScheduleController extends BaseController{
+public class ShowScheduleController extends BaseController{
     private final ScheduleViewBuilder scheduleViewBuilder;
     private final ScheduleRepository scheduleRepository;
     private final ProgressRepository progressRepository;
 
     @Autowired
-    public showScheduleController(CourseMapBuilder courseMapBuilder, ScheduleViewBuilder scheduleViewBuilder, ScheduleRepository scheduleRepository, ProgressRepository progressRepository) {
+    public ShowScheduleController(CourseMapBuilder courseMapBuilder, ScheduleViewBuilder scheduleViewBuilder, ScheduleRepository scheduleRepository, ProgressRepository progressRepository) {
         super(courseMapBuilder);
         this.scheduleViewBuilder = scheduleViewBuilder;
         this.scheduleRepository = scheduleRepository;
@@ -28,8 +28,9 @@ public class showScheduleController extends BaseController{
     }
 
     @GetMapping("/showSchedule")
-    //public String content(@RequestParam("startDate") LocalDate startDate, Model model) {
-    public String content(@RequestParam("courseId") Long courseId, Model model) {
+    public String content(@RequestParam("courseId") Long courseId, @RequestParam("courseTitle") String courseTitle, Model model) {
+        model.addAttribute("courseId", courseId);
+        model.addAttribute("courseTitle", courseTitle);
         String userId = "test";
         Optional<ScheduleView> scheduleView = scheduleViewBuilder.buildScheduleView(userId, courseId);
         if(scheduleView.isPresent()) {;

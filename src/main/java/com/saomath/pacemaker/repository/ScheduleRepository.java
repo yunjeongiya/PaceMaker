@@ -9,6 +9,8 @@ public interface ScheduleRepository {
     //nullable
     Optional<ScheduleView> findScheduleToDisplay(String userId, Long courseId);
 
+    Optional<Long> findActivatedScheduleId(String userId, Long courseId);
+
     //return scheduleId
     Long insert(Schedule schedule);
 

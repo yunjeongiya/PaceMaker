@@ -2,7 +2,6 @@ package com.saomath.pacemaker.service;
 
 import com.saomath.pacemaker.DTO.ProgressWithLectureInfo;
 import com.saomath.pacemaker.DTO.ScheduleView;
-import com.saomath.pacemaker.repository.LectureRepository;
 import com.saomath.pacemaker.repository.ProgressRepository;
 import com.saomath.pacemaker.repository.ScheduleRepository;
 

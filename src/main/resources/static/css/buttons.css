@@ -5,16 +5,24 @@
     width: 20%;
     font-size: xxx-large;
     text-align: center;
+    margin-inline: 40%;
 }
 
-#restartbtn {
-
+#restartbtn{
+    margin-left: 80%;
+    margin-top: 10%;
+    text-decoration: none;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 <!-- 출처: https://velog.io/@whdnjsdyd111/CSS-%EB%B2%84%ED%8A%BC-%EC%9D%B4%EC%81%98%EA%B2%8C-%EA%BE%B8%EB%AF%B8%EA%B8%B0 -->
 
-#newbtn:hover{
+#bignewbtn:hover{
+    text-decoration: none !important;
+    color: whitesmoke;
+}
+
+#restartbtn:hover{
     text-decoration: none !important;
     color: whitesmoke;
 }

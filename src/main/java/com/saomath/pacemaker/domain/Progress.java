@@ -9,8 +9,8 @@ public class Progress {
     private Long lectureId;
     private boolean done = false;
 
-    public Progress(Long planId, Long lectureId) {
-        this.scheduleId = planId;
+    public Progress(Long scheduleId, Long lectureId) {
+        this.scheduleId = scheduleId;
         this.lectureId = lectureId;
     }
 }

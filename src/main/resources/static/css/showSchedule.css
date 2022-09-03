@@ -1,17 +1,12 @@
-.scheduleView{
-    text-align: center;
-    margin-top: 10px;
-    margin-inline: auto;
-    width: 55%;
-}
-
 .date{
+    text-align: center;
+    margin-inline: auto;
 }
 
 .schedule{
     margin-top: 10px;
     margin-inline: auto;
-    width: 100%;
+    width: 51%;
     height: 60%;
     table-layout: fixed;
     border-collapse: collapse;
@@ -45,7 +40,7 @@
 #comment{
     margin-top: 10px;
     margin-left: 25%;
-    margin-right: 30%;
+    margin-right: 10px;
     width: 45%;
     height: 20%;
 }
@@ -56,4 +51,9 @@
 
 #commentForm{
     display: flex;
+}
+
+#commentSaveBtn{
+    height: 20%;
+    margin-top: 10px;
 }

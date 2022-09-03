@@ -25,11 +25,11 @@
     <form id="commentForm">
         <input type="hidden" id="scheduleId" th:value="${scheduleView.scheduleId}">
         <input id="comment" placeholder="이번 주 학습 소감" th:value="${scheduleView.comment}">
-        <input type="button" value="저장" onclick="dataSend()">
+        <input id="commentSaveBtn" type="button" value="저장" onclick="dataSend()">
     </form>
     <a id="restartbtn" class="w-btn w-btn-gra1 w-btn-gra-anim"
        th:href="@{/makeSchedule(courseId=${courseId}, courseTitle=${courseTitle})}">
-        RESTART!
+        RESTART
     </a>
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>

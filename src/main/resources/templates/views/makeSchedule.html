@@ -3,34 +3,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block layout:fragment="content">
     <link rel="stylesheet" href="/css/makeSchedule.css">
-    <table class="plan">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <div class="date">
+        <strong th:text="${courseTitle}"> courseTitle </strong>
+        <br> <strong th:text="${scheduleView.startDate} + ' ~ ' + ${scheduleView.endDate}"> YYYY/MM/DD ~ YYYY/MM/DD </strong>
+    </div>
+    <table class="schedule">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col" id="learningContent">학습 내용</th>
+            <th scope="col" id="done">완료</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="progress : ${scheduleView.progressWithLectureInfoList}">
+            <td th:text="${progress.title}">lecture title</td>
+            <td> <input type="checkbox" th:name="${progress.progressId}" th:checked="${progress.done}" onClick="check(this)"> </td>
         </tr>
         </tbody>
     </table>
+    <form id="commentForm">
+        <input type="hidden" id="scheduleId" th:value="${scheduleView.scheduleId}">
+        <input id="comment" placeholder="이번 주 학습 소감" th:value="${scheduleView.comment}">
+        <input id="commentSaveBtn" type="button" value="저장" onclick="dataSend()">
+    </form>
+    <a id="restartbtn" class="w-btn w-btn-gra1 w-btn-gra-anim"
+       th:href="@{/makeSchedule(courseId=${courseId}, courseTitle=${courseTitle})}">
+        RESTART
+    </a>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/js/Ajax.js"></script>
 </th:block>
 </html>

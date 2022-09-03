@@ -7,9 +7,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class ScheduleCandidateRes {
-    private LocalDate endDate;
+public class ScheduleCandidate {
+    private LocalDate startLocalDate;
+    private String startDate;
+    private String endDate;
+    private String courseEndDate;
     private int D_Day;
     private List<Lecture> schedulingResource;
-    private List<Lecture> candidateList;
+    private List<Lecture> lectureListCandidate;
 }

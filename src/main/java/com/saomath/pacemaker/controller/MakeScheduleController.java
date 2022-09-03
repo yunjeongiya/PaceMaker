@@ -6,12 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-
 @Controller
-public class makeScheduleController extends BaseController {
+public class MakeScheduleController extends BaseController {
 
-    public makeScheduleController(CourseMapBuilder courseMapBuilder) {
+    public MakeScheduleController(CourseMapBuilder courseMapBuilder) {
         super(courseMapBuilder);
     }
 

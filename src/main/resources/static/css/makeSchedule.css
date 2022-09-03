@@ -1,0 +1,59 @@
+.date{
+    text-align: center;
+    margin-inline: auto;
+}
+
+.schedule{
+    margin-top: 10px;
+    margin-inline: auto;
+    width: 51%;
+    height: 60%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #888;
+}
+
+/* 행 장식 */
+.schedule th, .schedule td {
+    padding: 10px;
+    text-align: left;
+}
+
+.schedule thead {
+    display:block;
+    background: #8a8a8a;
+}
+.schedule tbody{
+    display:block;
+    overflow:auto;
+    height:100%;
+}
+
+#learningContent{
+    width: 80%;
+}
+
+#done{
+    width: 20%;
+}
+
+#comment{
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-right: 10px;
+    width: 45%;
+    height: 20%;
+}
+
+#comment:focus{
+    outline: none;
+}
+
+#commentForm{
+    display: flex;
+}
+
+#commentSaveBtn{
+    height: 20%;
+    margin-top: 10px;
+}

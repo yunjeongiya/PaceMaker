@@ -36,6 +36,13 @@ public class JdbcTemplateScheduleRepo implements ScheduleRepository {
     }
 
     @Override
+    public Optional<Long> findActivatedScheduleId(String userId, Long courseId) {
+        List<Long> result = jdbcTemplate.query("select id from schedule where user_id=? and course_id=? and activated=true",
+                (rs, rowNum) -> {return rs.getLong("id");}, userId, courseId);
+        return result.stream().findAny();
+    }
+
+    @Override
     public Long insert(Schedule schedule) {
         SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
         jdbcInsert.withTableName("schedule").usingGeneratedKeyColumns("id");
