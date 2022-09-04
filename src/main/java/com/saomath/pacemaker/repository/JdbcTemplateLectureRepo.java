@@ -1,6 +1,5 @@
 package com.saomath.pacemaker.repository;
 
-import com.saomath.pacemaker.domain.Course;
 import com.saomath.pacemaker.domain.Lecture;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,7 +16,7 @@ public class JdbcTemplateLectureRepo implements LectureRepository {
 
     @Override
     public List<Lecture> findSchedulingResource(String userId, Long courseId) {
-        return jdbcTemplate.query("select * from lecture where course_id = ? and not in " +
+        return jdbcTemplate.query("select * from lecture where course_id = ? and id not in " +
                 "(select lecture_id from schedule inner join progress on schedule.id=progress.schedule_id where schedule.user_id = ? and schedule.course_id = ? and done = true)",
                 lectureRowMapper(), courseId, userId, courseId );
     }

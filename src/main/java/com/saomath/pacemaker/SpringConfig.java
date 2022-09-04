@@ -37,6 +37,6 @@ public class SpringConfig {
     @Bean
     public ProgressRepository progressRepository() { return new JdbcTemplateProgressRepo(dataSource); }
     @Bean
-    public LectureRepository lectureRepository() {return new JdbcTemplateLectureRepo(dataSource)}
+    public LectureRepository lectureRepository() {return new JdbcTemplateLectureRepo(dataSource); }
 
 }

@@ -42,15 +42,13 @@ public class ShowScheduleController extends BaseController{
 
     @RequestMapping(value = "/updateComment", method = RequestMethod.POST)
     @ResponseBody
-    public CommentUpdateReq updateComment(CommentUpdateReq commentUpdateReq){
+    public void updateComment(CommentUpdateReq commentUpdateReq){
         scheduleRepository.updateComment(commentUpdateReq.getScheduleId(), commentUpdateReq.getComment());
-        return commentUpdateReq;
     }
 
     @RequestMapping(value = "/updateDone", method = RequestMethod.POST)
     @ResponseBody
-    public DoneUpdateReq updateDone(DoneUpdateReq doneUpdateReq){
+    public void updateDone(DoneUpdateReq doneUpdateReq){
         progressRepository.updateDone(doneUpdateReq.getProgressId(), doneUpdateReq.isDone());
-        return doneUpdateReq;
     }
 }

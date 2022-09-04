@@ -1,4 +1,4 @@
-function dataSend() {
+function sendComment() {
     var scheduleId = $("#scheduleId").val();
     var comment = $("#comment").val();
     var commentUpdateReq = {
@@ -26,4 +26,24 @@ function check(box){
         data: doneUpdateReq,
         //몇시 업데이트인지 화면에 보이게 하기!
     });
+}
+
+function sendPace() {
+    var schedulingResource = $("#schedulingResource").val();
+    var pace = $("#pace").val();
+    var schedulingReq = {
+        schedulingResource : schedulingResource,
+        pace : pace
+    };
+
+    $.ajax({
+        url: "/regulatePace",
+        type: "POST",
+        data: schedulingReq,
+    });
+}
+
+//Lecture(id=11, courseId=1, title=로그 Lv1 - 로그의 정의, link=null, weight=1)]];
+function lectureStringToObject(List) {
+
 }
