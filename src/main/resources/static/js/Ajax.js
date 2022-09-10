@@ -29,11 +29,28 @@ function check(box){
 }
 
 function sendPace() {
-    var schedulingResource = $("#schedulingResource").val();
+    var schedulingResource = [];
+    $("#schedulingResource").each(
+        (id, courseId, title, link, weight) => {
+            var lecture = {
+                id : id,
+                courseId : courseId,
+                title : title,
+                link : link,
+                weight : weight
+            }
+            schedulingResource.push(lecture);
+            console.log(lecture.id);
+            console.log(lecture.courseId);
+            console.log(lecture.link);
+            console.log(lecture.weight);
+        }
+    );
+
     var pace = $("#pace").val();
     var schedulingReq = {
-        schedulingResource : schedulingResource,
-        pace : pace
+        pace : pace,
+        schedulingResource : schedulingResource
     };
 
     $.ajax({
@@ -42,8 +59,7 @@ function sendPace() {
         data: schedulingReq,
     });
 }
-
-//Lecture(id=11, courseId=1, title=로그 Lv1 - 로그의 정의, link=null, weight=1)]];
+//[Lecture(id=11, courseId=1, title=로그 Lv1 - 로그의 정의, link=null, weight=1)]];
 function lectureStringToObject(List) {
 
 }

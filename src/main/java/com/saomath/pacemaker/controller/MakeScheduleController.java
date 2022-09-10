@@ -1,12 +1,15 @@
 package com.saomath.pacemaker.controller;
 
 import com.saomath.pacemaker.DTO.*;
+import com.saomath.pacemaker.domain.Lecture;
 import com.saomath.pacemaker.service.CourseMapBuilder;
 import com.saomath.pacemaker.service.ScheduleBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 public class MakeScheduleController extends BaseController {
@@ -29,7 +32,10 @@ public class MakeScheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/regulatePace", method = RequestMethod.POST)
-    public void regulatePace(SchedulingReq schedulingReq, Model model){
+    public void regulatePace(int pace, @RequestParam(value="schedulingResource[]")ArrayList<Lecture> schedulingResource, Model model){
+        SchedulingReq schedulingReq = new SchedulingReq();
+        schedulingReq.setPace(pace);
+        schedulingReq.setSchedulingResource(schedulingResource);
         ScheduleCandidate scheduleCandidate = scheduleBuilder.scheduling(schedulingReq);
         model.addAttribute("scheduleCandidate", scheduleCandidate);
     }

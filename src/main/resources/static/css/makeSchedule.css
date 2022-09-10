@@ -7,7 +7,6 @@
     margin-top: 10px;
     margin-inline: auto;
     width: 51%;
-    height: 60%;
     table-layout: fixed;
     border-collapse: collapse;
     border: 1px solid #888;
@@ -22,11 +21,12 @@
 .schedule thead {
     display:block;
     background: #8a8a8a;
+    height: 13%;
 }
 .schedule tbody{
     display:block;
     overflow:auto;
-    height:100%;
+    height:87%;
 }
 
 #learningContent{
@@ -37,23 +37,43 @@
     width: 20%;
 }
 
-#comment{
-    margin-top: 10px;
+#courseEndDateWrap{
     margin-left: 25%;
     margin-right: 10px;
-    width: 45%;
+    width: 20%;
     height: 20%;
 }
 
-#comment:focus{
-    outline: none;
-}
-
-#commentForm{
+#paceWrapper{
     display: flex;
 }
 
-#commentSaveBtn{
+#regulatePace{
     height: 20%;
-    margin-top: 10px;
+    width: 40%;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    overflow: hidden;
+    width: 73%;
+    height: 10px;
+    background: transparent;
+    cursor: pointer;
+    background: #e5e4e3;
+    border-radius: 0; /* iOS */
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    box-shadow: -100vw 0 0 100vw dodgerblue;
+    border: 0.1px solid dodgerblue;
+    cursor: pointer;
 }

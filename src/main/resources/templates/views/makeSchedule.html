@@ -9,6 +9,17 @@
         <br> <strong th:text="${scheduleCandidate.startDate} + ' ~ ' + ${scheduleCandidate.endDate}"> YYYY/MM/DD ~ YYYY/MM/DD </strong>
     </div>
 
+    <div id="paceWrapper">
+        <br>
+        <div id="courseEndDateWrap">
+            <strong th:text="'예상종료일: ' + ${scheduleCandidate.courseEndDate} + ' ( D-' + ${scheduleCandidate.D_Day} + ' ) '"> YYYY/MM/DD (D-n) </strong>
+        </div>
+        <form id="regulatePace">
+            <input type="hidden" id="schedulingResource" th:value="${scheduleCandidate.schedulingResource}">
+            <input type="range" id="pace" min="1" max="70" value="${pace}" oninput="sendPace()">
+        </form>
+    </div>
+
     <table class="schedule">
         <thead>
         <tr>
@@ -23,12 +34,13 @@
         </tbody>
     </table>
 
-    <form id="regulatePace">
-        <input type="hidden" id="schedulingResource" th:value="${scheduleCandidate.schedulingResource}">
-        <input type="range" id="pace" oninput="sendPace()">
+    <form id="save" th:action="@{/replaceSchedule}" th:object="${schedulingReq}" method="post">
+
+        <inpt type="submit" id="restartbtn" class="w-btn w-btn-gra1 w-btn-gra-anim">
+            SAVE
+        </inpt>
     </form>
 
-    <br> <strong th:text="'예상종료일: ' + ${scheduleCandidate.courseEndDate} + '( D-' + ${scheduleCandidate.D_Day} + ') '"> YYYY/MM/DD (D-n) </strong>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="/js/Ajax.js"></script>
 </th:block>

@@ -7,7 +7,6 @@
     margin-top: 10px;
     margin-inline: auto;
     width: 51%;
-    height: 60%;
     table-layout: fixed;
     border-collapse: collapse;
     border: 1px solid #888;
@@ -22,11 +21,13 @@
 .schedule thead {
     display:block;
     background: #8a8a8a;
+    height: 13%
 }
+
 .schedule tbody{
     display:block;
     overflow:auto;
-    height:100%;
+    height:87%;
 }
 
 #learningContent{
@@ -56,4 +57,14 @@
 #commentSaveBtn{
     height: 20%;
     margin-top: 10px;
+}
+
+#restartbtn{
+    margin-left: 80%;
+    text-decoration: none;
+}
+
+#restartbtn:hover{
+    text-decoration: none !important;
+    color: whitesmoke;
 }

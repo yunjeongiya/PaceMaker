@@ -12,6 +12,7 @@ import com.saomath.pacemaker.repository.ScheduleRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,20 +38,33 @@ public class ScheduleBuilderImpl implements ScheduleBuilder{
 
     @Override
     public ScheduleCandidate scheduling(SchedulingReq schedulingReq) {
-        ScheduleCandidate scheduleCandidate = new ScheduleCandidate();
-        scheduleCandidate.setSchedulingResource(schedulingReq.getSchedulingResource());
+        List<Lecture> schedulingResource = schedulingReq.getSchedulingResource();
+        int pace = schedulingReq.getPace();
 
+        ScheduleCandidate scheduleCandidate = new ScheduleCandidate();
+        scheduleCandidate.setSchedulingResource(schedulingResource);
         LocalDate today = LocalDate.now();
         scheduleCandidate.setStartLocalDate(today);
         scheduleCandidate.setStartDate(today.toString());
         scheduleCandidate.setEndDate(today.plusWeeks(1).toString());
 
-        int d_day = 10;
+        //pace: 일주일에 하는 개수
+        double weightSum = 0;
+        for(Lecture lecture : schedulingResource){
+            weightSum += lecture.getWeight();
+        }
+        int d_day = (int) Math.ceil(weightSum / pace * 7);
         scheduleCandidate.setD_Day(d_day);
         scheduleCandidate.setCourseEndDate(today.plusDays(d_day).toString());
 
-        List<Lecture> lectureListCandidate = schedulingReq.getSchedulingResource();
-        //TODO scheduling algorithm 구현 필요
+        List<Lecture> lectureListCandidate = new ArrayList<Lecture>();
+        int scheduledWiehgtSum = 0;
+        for(Lecture lecture : schedulingResource){
+            scheduledWiehgtSum += lecture.getWeight();
+            if(scheduledWiehgtSum > pace) break;
+            lectureListCandidate.add(lecture);
+        }
+
         scheduleCandidate.setLectureListCandidate(lectureListCandidate);
         return scheduleCandidate;
     }
